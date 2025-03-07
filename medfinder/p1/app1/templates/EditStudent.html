@@ -1,0 +1,17 @@
+<h1>Edit and Save student data</h1>
+{% if record %}
+{% for d in record %}
+<form method="post" action="../edit_student1/">
+    {% csrf_token %}
+    <p>Enrollment <input readonly value="{{d.enrollment}}" type="text" name="T1" id="txt1" /> </p>
+    <p>Name <input value="{{d.name}}" type="text" name="T2" id="txt2" /> </p>
+    <p>Branch <input value="{{d.branch}}" type="text" name="T3" id="txt3" /> </p>
+
+    <p><button type="submit">Save Changes</button> </p>
+
+</form>
+{% endfor %}
+{% endif %}
+<h3>
+    <a href="../show_students">Back</a>
+</h3>

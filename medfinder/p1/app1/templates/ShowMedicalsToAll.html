@@ -1,0 +1,18 @@
+{% extends 'A1.html' %}
+{% load static %}
+{% block m1 %}
+
+<h1>Medical Stores</h1>
+{% if records %}
+    {% for d in records %}
+        <h3>{{d.store_name}}</h3>
+        <p>
+            Owner : {{d.owner}}<br/>
+            Address : {{d.address}}<br/>
+            Contact : {{d.contact}} <br/>
+            Email : {{d.email}}
+        </p>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

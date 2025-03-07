@@ -1,0 +1,318 @@
+{% extends 'B1.html' %}
+{% load static %}
+{% block m1 %}
+<!--<h1>MEDICAL REGISTRATION</h1>
+<form method="post" action="../medical_reg/">
+    {% csrf_token %}
+    <p>Store name<input type="text" name="T1" id="txt1"/></p>
+    <p>Owner<input type="text" name="T2" id="txt2"/></p>
+    <p>L.No.<input type="text" name="T3" id="txt3"/></p>
+    <p>Address<input type="text" name="T4" id="txt4"/></p>
+    <p>Contact<input type="text" name="T5" id="txt5"/></p>
+    <p>Email<input type="text" name="T6" id="txt6"/></p>
+    <p>Password<input type="password" name="T7" id="txt7"/></p>
+    <p>Confirm password<input type="password" name="T8" id="txt8"/>
+    </p>
+    <p><button type="submit">REGISTER</button></p>
+</form>-->
+
+<div class="row my-5">
+    <div class="col-3"></div>
+        <div class="col-6" style="border-radius:10px;border:2px solid red;padding:20px;">
+<h1>Medical Registration</h1>
+<form onSubmit="return A()" id="form1" name="form1" method="post" action="http://localhost:8000/medical_reg/">
+          {% csrf_token %}
+  <div class="form-group mt-2">
+    <label >Store Name</label>
+    <input type="text" name="T1" class="form-control" placeholder=" " id="Txt1">
+     <span id="ersp1"></span>
+
+
+  </div>
+     <div class="form-group mt-2">
+    <label >Owner Name</label>
+    <input type="text" name="T2" class="form-control" placeholder=" " id="Txt2">
+     <span id="ersp2"></span>
+
+  </div>
+
+    <div class="form-group mt-2">
+    <label >Lno</label>
+    <input type="text" name="T3" class="form-control"   id="Txt3" placeholder="">
+     <span id="ersp3"></span>
+
+  </div>
+    <div class="form-group mt-2">
+    <label for="Txt4">Address</label>
+    <input type="text" name="T4"  class="form-control" id="Txt4" placeholder="">
+     <span id="ersp4"></span>
+
+  </div>
+    <div class="form-group mt-2">
+    <label for="Txt5">Contact</label>
+    <input type="text" name="T5" class="form-control"   id="Txt5" placeholder="">
+     <span id="ersp5"></span>
+
+  </div>
+
+    <div class="form-group mt-2">
+    <label for="Txt6">Email address</label>
+    <input type="email"  name="T6" class="form-control" id="Txt6" aria-describedby="emailHelp" placeholder="Enter email">
+     <span id="ersp6"></span>
+
+
+  </div>
+
+  <div class="form-group mt-2">
+    <label for="Txt7">Password</label>
+    <input type="password" name="T7" class="form-control" id="Txt7" placeholder="Password">
+     <span id="ersp7"></span>
+
+  </div>
+    <div class="form-group mt-2">
+    <label for="Txt8">Confirm Password</label>
+    <input type="password" name="T8" class="form-control" id="Txt8" placeholder="Confirm Password">
+     <span id="ersp8"></span>
+
+  </div>
+
+
+  <button type="submit" class="btn btn-primary mt-3">Register</button>
+</form>
+
+
+<script>
+
+	function B()
+		{
+			var mg,t;
+			mg=document.getElementById("img1");
+			t=document.getElementById("Txt5");
+			if(t.type=="password")
+			{
+				t.type="text";
+				mg.src="e1.png";
+			}
+			else
+			{
+				t.type="password";
+				mg.src="e2.png";
+			}
+		}
+
+
+	function A()
+		{
+			var t1,t2,t3,t4,t5,t6;
+			var er1,er2,er3,er4,er5,er6;
+
+			//map variables with java script elements
+			t1=document.getElementById("Txt1");
+			t2=document.getElementById("Txt2");
+			t3=document.getElementById("Txt3");
+			t4=document.getElementById("Txt4");
+			t5=document.getElementById("Txt5");
+			t6=document.getElementById("Txt6");
+			t7=document.getElementById("Txt7");
+			t8=document.getElementById("Txt8");
+
+			er1=document.getElementById("ersp1");
+			er2=document.getElementById("ersp2");
+			er3=document.getElementById("ersp3");
+			er4=document.getElementById("ersp4");
+			er5=document.getElementById("ersp5");
+			er6=document.getElementById("ersp6");
+			er7=document.getElementById("ersp7");
+			er8=document.getElementById("ersp8");
+
+			//pick values of textfields
+			var v1,v2,v3,v4,v5,v6;
+			v1=t1.value;
+			v2=t2.value;
+			v3=t3.value;
+			v4=t4.value;
+			v5=t5.value;
+			v6=t6.value;
+			v7=t7.value;
+			v8=t8.value;
+
+			//clear all old messages
+			er1.innerHTML="";
+			er2.innerHTML="";
+			er3.innerHTML="";
+			er4.innerHTML="";
+			er5.innerHTML="";
+			er6.innerHTML="";
+			er7.innerHTML="";
+			er8.innerHTML="";
+
+			if(v1==null || v1=="")
+		{
+			er1.innerHTML="Enter store name ";
+			t1.focus();
+			return false;
+		}
+
+		else if(check_alpha(v1)==false)
+		{
+			er1.innerHTML="Enter valid store name";
+			t1.select();
+			return false;
+		}
+		    else if (v2==null || v2=="")
+			{
+				er2.innerHTML="Enter owner name";
+				t2.focus();
+				return false;
+			}
+
+			else if(check_alpha(v2)==false)
+		{
+			er2.innerHTML="Enter valid owner name";
+			t2.select();
+			return false;
+		}
+
+
+
+
+			else if (v3==null || v3=="")
+			{
+				er3.innerHTML="Enter lno";
+				t3.focus();
+				return false;
+			}
+
+			else if (v4==null || v4=="")
+			{
+				er4.innerHTML="Enter Address";
+				t4.focus();
+				return false;
+			}
+
+			else if(v5==null || v5=="")
+		{
+			er5.innerHTML="Enter contact";
+			t5.focus();
+			return false;
+		}
+		else if(check_number(v5)==false)
+		{
+			er5.innerHTML="Enter valid contact";
+			t5.select();
+			return false;
+		}
+		else if(check_mobileno(v5)==false)
+		{
+			er5.innerHTML="Enter 10 digits";
+			t5.select();
+			return false;
+		}
+
+		else if (v6==null || v6=="")
+			{
+				er6.innerHTML="Enter Email address";
+				t6.focus();
+				return false;
+			}
+
+			else if(v7==null || v7=="")
+		{
+			er7.innerHTML="Enter password";
+			t7.focus();
+			return false;
+		}
+		else if(v8==null || v8=="")
+		{
+			er8.innerHTML="Enter confirm password";
+			t8.focus();
+			return false;
+		}
+		else if(check_password(v7,v8)==false)
+		{
+			er7.innerHTML="Password does not match";
+			t7.value="";
+			t8.value="";
+			t7.focus();
+			return false;
+		}
+	}
+
+
+
+
+
+	function check_alpha(str)
+	{
+		var f=true;
+		var n=str.length;
+		for(var i=0;i<n;i++)
+		{
+			var ch=str.charAt(i);
+			if(ch>='a'&&ch<='z' || ch>='A'&&ch<='Z' || ch==' ')
+			{
+				f=true;
+			}
+			else
+			{
+				f=false;
+				break;
+			}
+		}
+		return f;
+	}
+
+	function check_number(str)
+	{
+		var f=true;
+		var n=str.length;
+		for(var i=0;i<n;i++)
+		{
+			var ch=str.charAt(i);
+			if(ch>='0'&&ch<='9')
+			{
+				f=true;
+			}
+			else
+			{
+				f=false;
+				break;
+			}
+		}
+		return f;
+	}
+
+	function check_password(p1,p2)
+	{
+		if(p1!=p2)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	function check_mobileno(n)
+	{
+		if(n<6000000000 || n>9999999999)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+</script>
+            <div class="col-3"></div>
+        </div>
+</div>
+    </div>
+
+{% if vgt %}
+<h3> {{ vgt }} </h3>
+{% endif %}
+{% endblock %}

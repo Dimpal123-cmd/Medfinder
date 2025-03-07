@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>medical's block</title>
+	<link href="../static/navbar_medical_css/medical.css" rel="stylesheet" type="text/css" />
+	<script src="../static/popper/popper.min.js"></script>
+	<script src="../static/bootstrap-5.3.3-dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+<div>
+	<nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MedFinder</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="http://localhost:8000/medical_home/">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Madicine</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="http://localhost:8000/medicine_reg/">Add</a>
+            <a class="dropdown-item" href="http://localhost:8000/show_medicines/">Manage</a>
+
+          </div>
+        </li>
+		   <li class="nav-item">
+          <a class="nav-link" href="http://localhost:8000/logout/">Logout</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="row" >
+  <div class="col-12"style="width:100%;min-height:500px;">
+
+    {% block m1 %}
+    {% endblock %}
+
+  </div>
+
+  <div class="bg-light" style="width:100%;height:100px;"></div>
+</div>
+</div>
+</body>
+</html>

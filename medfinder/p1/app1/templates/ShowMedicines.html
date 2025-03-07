@@ -1,0 +1,37 @@
+{% extends 'C1.html' %}
+{% load static %}
+{% block m1 %}
+<h1>Medicines</h1>
+{% if records %}
+    {% for d in records %}
+        <h3>{{d.med_name}}</h3>
+        <p>
+            company : {{d.company}}<br/>
+            medicine_type : {{d.med_type}}<br/>
+            lno : {{d.lno}} <br/>
+            decription : {{d.description}}<br/>
+            unit_price : {{d.unit_price}}
+        </p>
+<table>
+    <tr>
+        <td>
+            <form method="post" action="../edit_medicine/">
+                {% csrf_token %}
+                <input type="hidden" value="{{d.med_name}}" name="H1"/>
+                <button type="submit" >Edit</button>
+            </form>
+        </td>
+        <td>
+            <form method="post" action="../delete_medicine/">
+              {% csrf_token %}
+                 <input type="hidden" value="{{d.med_name}}" name="H1"/>
+                <button type="submit" >delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+    {% endfor %}
+
+{% endif %}
+{% endblock %}

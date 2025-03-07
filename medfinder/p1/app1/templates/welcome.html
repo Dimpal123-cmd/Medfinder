@@ -1,0 +1,35 @@
+{% extends 'A1.html' %}
+{% load static %}
+{% block m1 %}
+
+<h1 class="mx-3">Find your medicine here.</h1>
+
+<h3 class="mx-3">Medicines</h3>
+{% if records %}
+
+
+    {% for d in records %}
+        <div class="row mx-3">
+            <div class="col-4 p-2">
+                <h4>{{d.0}}</h4>
+                <p>
+                    Company : {{d.1}}<br/>
+                    Unit Price : {{d.3}}
+                </p>
+            </div>
+            <div class="col-4 p-2">
+                <h4>{{d.5}}</h4>
+                <p>
+                    Owner : {{d.6}}<br/>
+                    Address  : {{d.7}}<br/>
+                    Contact : {{d.8}}<br/>
+                </p>
+            </div>
+            <div class="col-4 p-2">
+
+            </div>
+        </div>
+    {% endfor %}
+
+{% endif %}
+{% endblock %}

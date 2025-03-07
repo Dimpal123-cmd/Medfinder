@@ -1,0 +1,18 @@
+<h1>Delete this student data</h1>
+{% if record %}
+{% for d in record %}
+    <form method="post" action="../delete_student1/">
+        <input type="hidden" name="T1" value="{{d.enrollment}}" />
+    {% csrf_token %}
+    <p>Enrollment : {{d.enrollment}} </p>
+    <p>Name : {{d.name}} </p>
+    <p>Branch : {{d.branch}} </p>
+
+    <p><button type="submit">Delete</button> </p>
+
+</form>
+{% endfor %}
+{% endif %}
+<h3>
+    <a href="../show_students">Cancel</a>
+</h3>

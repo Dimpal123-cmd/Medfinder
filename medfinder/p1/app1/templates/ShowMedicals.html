@@ -1,0 +1,93 @@
+{% extends 'B1.html' %}
+{% load static %}
+{% block m1 %}
+<h1>Medical Stores</h1>
+{% if records %}
+<div class="container m-0">
+<div class="row m-0">
+
+
+    {% for d in records %}
+    <div class="col-4 px-1">
+        <!--<h3>{{d.store_name}}</h3>
+        <p>
+            Owner : {{d.owner}}<br/>
+            Address : {{d.address}}<br/>
+            Contact : {{d.contact}} <br/>
+            Email : {{d.email}}
+        </p>
+
+
+
+
+
+        <table>
+    <tr>
+        <td>
+            <form method="post" action="../edit_medical/">
+                {% csrf_token %}
+                <input type="hidden" value="{{d.store_name}}" name="H1"/>
+                <button type="submit" >Edit</button>
+            </form>
+        </td>
+        <td>
+            <form method="post" action="../delete_medical/">
+              {% csrf_token %}
+                 <input type="hidden" value="{{d.store_name}}" name="H1"/>
+                <button type="submit" >delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+
+-->
+
+
+        <div class="card" style="margin:4px;width:300px;float:left;">
+        <div class="card-body">
+        <h3 class="card-header text-center">{{d.store_name}}</h3>
+            <h4 class="card-title text-center">Owner : {{d.owner}} </h4>
+            <h4 class="card-title text-center">Address : {{d.address}}</h4>
+        <h4 class="card-title text-center">Contact : {{d.contact}}</h4>
+            <h4 class="card-title text-center">Email : {{d.email}}</h4>
+
+            <table width="100%">
+    <tr>
+        <td>
+            <form method="post" action="../edit_medical/">
+                {% csrf_token %}
+                <input type="hidden" value="{{d.store_name}}" name="H1"/>
+                <button class="btn btn-success d-block px-5" type="submit" >Edit</button>
+            </form>
+        </td>
+        <td>
+            <form method="post" action="../delete_medical/">
+              {% csrf_token %}
+                 <input type="hidden" value="{{d.store_name}}" name="H1"/>
+                <button class="btn btn-info d-block px-5" type="submit" >delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+{% endfor %}
+
+ </div>
+</div>
+{% endif %}
+{% endblock %}

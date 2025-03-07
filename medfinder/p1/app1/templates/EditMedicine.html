@@ -1,0 +1,65 @@
+{% extends 'C1.html' %}
+{% load static %}
+{% block m1 %}
+ <H1>Edit Medicine</H1>
+{% if record %}
+{% for d in record %}
+<!--<form method="post" action="../edit_medicine1/">
+{% csrf_token %}
+ <p>Medicine name<input readonly value="{{d.med_name}}" type="text" name="T1" id="txt1"/></p>
+    <p>Company<input value="{{d.company}}" type="text" name="T2" id="txt2"/></p>
+    <p>L.No.<input value="{{d.lno}}" type="text" name="T3" id="txt3"/></p>
+    <p>Medicine Type<input value="{{d.med_type}}" type="text" name="T4" id="txt4"/></p>
+    <p>Description<input value="{{d.description}}" type="text" name="T5" id="txt5"/></p>
+    <p>Unit Price<input value="{{d.unit_price}}" type="text" name="T6" id="txt6"/></p>
+<p><button type="submit">Save Changes</button> </p>
+</form>-->
+<div class="row my-5">
+   < <div class="col-3"></div>
+        <div class="col-6" style="border-radius:10px;border:2px solid red;padding:20px;">
+<h1>Medicine Registration </h1>
+<form  method="post" action="http://localhost:8000/edit_medicine1/">
+    {% csrf_token %}
+  <div class="form-group mt-2">
+    <label >Medicine name</label>
+    <input type="text" readonly value="{{d.med_name}}" name="T1" class="form-control" placeholder=" ">
+
+  </div>
+     <div class="form-group mt-2">
+    <label >company</label>
+    <input type="text" value="{{d.company}}" name="T2" class="form-control" placeholder=" ">
+  </div>
+
+    <div class="form-group mt-2">
+    <label >Lno</label>
+    <input type="text" value="{{d.lno}}" name="T3" class="form-control"   id="inputAddress" placeholder="">
+  </div>
+    <div class="form-group mt-2">
+    <label for="inputAddress">Medicine type</label>
+    <input type="text" value="{{d.med_type}}" name="T4"  class="form-control" id="inputAddress1" placeholder="">
+  </div>
+    <div class="form-group mt-2">
+    <label for="inputAddress">description</label>
+    <input type="text" value="{{d.med_type}}" name="T5" class="form-control"   id="inputAddress2" placeholder="">
+  </div>
+
+    <div class="form-group mt-2">
+    <label >unit price</label>
+    <input type="text" value="{{d.unit_price}}" name="T6" class="form-control" placeholder=" ">
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary mt-3">Register</button>
+</form>
+            <div class="col-3"></div>
+        </div>
+</div>
+    </div>
+
+{% endfor %}
+{% endif %}
+<h3>
+    <a href="../show_medicines/">Back</a>
+</h3>
+{% endblock %}

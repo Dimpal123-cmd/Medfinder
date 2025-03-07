@@ -1,0 +1,64 @@
+<h1>Students</h1>
+{% if records %}
+    {% for d in records %}
+        <h3>Name : {{d.name}}</h3>
+        <p>
+            Enrollment : {{d.enrollment}}<br/>
+            Branch : {{d.branch}}
+        </p>
+        <table>
+            <tr>
+                <td>
+                    <form method="post" action="../edit_student/">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{d.enrollment}}" name="H1" />
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="../delete_student/">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{d.enrollment}}" name="H1" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    {% endfor %}
+
+    <table cellpadding="5"  width="100%" border="1" style="border-collapse:collapse;">
+        <tr>
+            <th>Enrollment</th>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>Manage</th>
+        </tr>
+    {% for d in records %}
+        <tr>
+            <td>{{d.enrollment}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.branch}}</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <form method="post" action="../edit_student/">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{d.enrollment}}" name="H1" />
+                                <button type="submit">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" action="../delete_student/">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{d.enrollment}}" name="H1" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}

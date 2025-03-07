@@ -1,0 +1,26 @@
+{% extends 'B1.html' %}
+{% load static %}
+{% block m1 %}
+
+<h1>Delete this medical data</h1>
+{% if record %}
+{% for d in record %}
+    <form method="post" action="../delete_medical1/">
+        <input type="hidden" name="T1" value="{{d.store_name}}" />
+    {% csrf_token %}
+      <p>Store name : {{d.store_name}}</p>
+      <p>Owner : {{d.owner}}</p>
+      <p>Address : {{d.address}}</p>
+      <p>Contact : {{d.contact}}</p>
+      <p>Email : {{d.email}}</p>
+        <p>L.no : {{d.lno}}</p>
+
+    <p><button type="submit">Delete</button> </p>
+
+</form>
+{% endfor %}
+{% endif %}
+<h3>
+    <a href="../show_medicals/">Cancel</a>
+</h3>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'C1.html' %}
+{% load static %}
+{% block m1 %}
+
+<!--<form method="post" action="../medicine_reg/">
+    {% csrf_token %}
+    <p>Medicine name<input type="text" name="T1" id="txt1"/></p>
+    <p>company<input type="text" name="T2" id="txt2"/></p>
+    <p>LNo<input type="text" name="T3" id="txt3"/></p>
+    <p>Medicine type<input type="text" name="T4" id="txt4"/></p>
+    <p>description<input type="text" name="T5" id="txt5"/></p>
+    <p>unit price<input type="text" name="T6" id="txt6"/></p>
+    <p><button type="submit">Register</button> </p>
+
+
+</form>-->
+<div class="row my-5">
+   < <div class="col-3"></div>
+        <div class="col-6" style="border-radius:10px;border:2px solid red;padding:20px;">
+<h1>Medicine Registration </h1>
+<form onSubmit="return A()" method="post" action="http://localhost:8000/medicine_reg/">
+    {% csrf_token %}
+  <div class="form-group mt-2">
+    <label for="Txt1">Medicine name</label>
+    <input type="text" name="T1" class="form-control" placeholder="Medicine name" id="Txt1">
+     <span id="ersp1"></span>
+
+  </div>
+     <div class="form-group mt-2">
+    <label for="Txt2">company</label>
+    <input type="text" name="T2" class="form-control" placeholder="company" id="Txt2">
+     <span id="ersp2"></span>
+  </div>
+
+    <div class="form-group mt-2">
+    <label for="Txt3">Lno</label>
+    <input type="text" name="T3" class="form-control"    id="Txt3" placeholder="license number">
+     <span id="ersp3"></span>
+  </div>
+    <div class="form-group mt-2">
+    <label for="Txt4">Medicine type</label>
+    <input type="text" name="T4"  class="form-control"  id="Txt4"  placeholder="Medicine type">
+     <span id="ersp4"></span>
+  </div>
+    <div class="form-group mt-2">
+    <label for="Txt5">description</label>
+    <input type="text" name="T5" class="form-control"    id="Txt5" placeholder="description">
+     <span id="ersp5"></span>
+  </div>
+
+    <div class="form-group mt-2">
+    <label for="Txt6">unit price</label>
+    <input type="text" name="T6" class="form-control" id="Txt6" placeholder="unit price">
+     <span id="ersp6"></span>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary mt-3">Register</button>
+</form>
+<script>
+function A()
+	{
+		var t1,t2,t3,t4,t5,t6;
+		var er1,er2,er3,er4,er5,er6;
+
+		//map variables with java script elements
+		t1=document.getElementById("Txt1");
+		t2=document.getElementById("Txt2");
+		t3=document.getElementById("Txt3");
+		t4=document.getElementById("Txt4");
+		t5=document.getElementById("Txt5");
+		t6=document.getElementById("Txt6");
+
+		er1=document.getElementById("ersp1");
+		er2=document.getElementById("ersp2");
+		er3=document.getElementById("ersp3");
+		er4=document.getElementById("ersp4");
+		er5=document.getElementById("ersp5");
+		er6=document.getElementById("ersp6");
+
+		//pick values of textfields
+		var v1,v2,v3,v4,v5,v6;
+		v1=t1.value;
+		v2=t2.value;
+		v3=t3.value;
+		v4=t4.value;
+		v5=t5.value;
+		v6=t6.value;
+
+		//clear all old messages
+		er1.innerHTML="";
+		er2.innerHTML="";
+		er3.innerHTML="";
+		er4.innerHTML="";
+		er5.innerHTML="";
+		er6.innerHTML="";
+		if(v1==null || v1=="")
+		{
+			er1.innerHTML="Enter madicine name ";
+			t1.focus();
+			return false;
+		}
+		else if(v2==null || v2=="")
+		{
+			er2.innerHTML="Enter company";
+			t2.focus();
+			return false;
+		}
+		else if(v3==null || v3=="")
+		{
+			er3.innerHTML="Enter license number";
+			t3.focus();
+			return false;
+		}
+		else if(v4==null || v4=="")
+		{
+			er4.innerHTML="Enter Medicine type";
+			t4.focus();
+			return false;
+		}
+		else if(v5==null || v5=="")
+		{
+			er5.innerHTML="Enter description";
+			t5.focus();
+			return false;
+		}
+		else if(v6==null || v6=="")
+		{
+			er6.innerHTML="Enter unit price";
+			t6.focus();
+			return false;
+		}
+	}
+</script>
+
+            <div class="col-3"></div>
+        </div>
+</div>
+    </div>
+
+
+{% if vgt %}
+<h3> {{ vgt }} </h3>
+
+{% endif %}
+{% endblock %}

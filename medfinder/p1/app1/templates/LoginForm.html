@@ -1,0 +1,97 @@
+{% extends 'A1.html' %}
+{% load static %}
+{% block m1 %}
+
+
+<!--<form method="post" action="../login/">
+   {% csrf_token %}
+  <p>User id <input type="text" name="T1" /> </p>
+  <p>Password <input type="password" name="T2" /> </p>
+  <p><input type="submit" name="B1" value="login"/>
+
+  </p>
+</form>-->
+<div class="row mt-5 mb-6" >
+  <div class="col-4"></div>
+<div class="col-4" style="margin-top:60px; border:2px solid #fff; padding:10px; border-radius:10px; " >
+  <h1 align="center">Sign In</h1>
+ <form onSubmit="return A()" method="post"action="http://localhost:8000/login/" >
+ {% csrf_token %}
+  <div class="form-group" style="width:100%;">
+    <label for="ee1">Email address</label>
+    <input type="email" name="T1" class="form-control" id="ee1" aria-describedby="emailHelp" placeholder="Enter email">
+    <span id="ersp1"></span>
+    <small id="emailHelp"  class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group" style="width:100%;">
+    <label for="ee2">Password</label>
+    <input type="password"  name="T2" class="form-control" id="ee2" placeholder="Password">
+    <img onClick="B()" src="../static/e1.png" width="40" height="24" id="img1" style="margin-top:-70px;margin-left: 274px;border-radius:10%;" />
+      <span id="ersp2"></span>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+<script>function A()
+	{
+		var t1,t2;
+		var er1,er2;
+
+		//map variables with java script elements
+		t1=document.getElementById("ee1");
+		t2=document.getElementById("ee2");
+
+		er1=document.getElementById("ersp1");
+		er2=document.getElementById("ersp2");
+
+		//pick values of textfields
+		var v1,v2;
+		v1=t1.value;
+		v2=t2.value;
+
+
+		//clear all old messages
+		er1.innerHTML="";
+		er2.innerHTML="";
+		if(v1==null || v1=="")
+		{
+			er1.innerHTML="Enter email ";
+			t1.focus();
+			return false;
+		}
+		else if(v2==null || v2=="")
+		{
+			er2.innerHTML="Enter password";
+			t2.focus();
+			return false;
+		}
+	}
+		function B()
+	{
+		var mg,t;
+		mg=document.getElementById("img1");
+		t=document.getElementById("ee2");
+		if(t.type=="password")
+		{
+			t.type="text";
+			mg.src="../static/e1.png";
+		}
+		else
+		{
+			t.type="password";
+			mg.src="../static/e2.png";
+		}
+	}
+
+</script>
+</div>
+  <div class="col-4"></div>
+</div>
+
+
+{% if msg %}
+  <h3>{{msg}}</h3>
+{% endif %}
+
+
+{% endblock %}
