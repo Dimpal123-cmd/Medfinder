@@ -1,0 +1,52 @@
+{% extends "a1_guest.html" %}
+{% block m2 %}
+{% if data %}
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+
+        <h1>Delete </h1>
+
+        <h2><a class="text-danger" href="show_medicals">Back</a></h2>
+        <form method="post" action="delete_medical_1">
+
+        <div>
+          <label class="col-form-label mt-4" for="txt1">StoreName</label>
+          <input value="{{data[0]}}" name="T1" type="text" class="form-control" placeholder="Enter storename" id="txt1">
+        </div>
+        <div>
+          <label class="col-form-label mt-4" for="txt2">Owner</label>
+          <input value="{{data[1]}}" name="T2" type="text" class="form-control" placeholder="Enter Owner" id="txt2">
+        </div>
+        <div>
+          <label class="col-form-label mt-4" for="txt3">Address</label>
+          <input value="{{data[2]}}" name="T3" type="text" class="form-control" placeholder="Enter address" id="txt3">
+        </div>
+        <div>
+          <label class="col-form-label mt-4" for="txt4">Contact</label>
+          <input value="{{data[3]}}" name="T4" type="text" class="form-control" placeholder="Enter contact" id="txt4">
+        </div>
+            <div>
+          <label class="col-form-label mt-4" for="txt5">lno</label>
+          <input value="{{data[4]}}" name="T5" type="text" class="form-control" placeholder="Enter Lno" id="txt5">
+        </div>
+              <div>
+          <label class="col-form-label mt-4" for="txt6">Email</label>
+          <input readonly value="{{data[5]}}" name="T6" type="text" class="form-control" placeholder="Enter email" id="txt6">
+        </div>
+
+        <br/>
+        <div class="d-grid gap-2">
+          <button class="btn btn-lg btn-primary" type="submit">delete items</button>
+
+        </div>
+</form>
+
+    </div>
+    <div class="col-3"></div>
+</div>
+
+{% elif msg %}
+    <h3 class="text-danger">{{msg}}</h3>
+{% endif %}
+{% endblock %}

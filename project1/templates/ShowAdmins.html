@@ -1,0 +1,25 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+{% if data %}
+<h1>List of All Registered Admins</h1>
+
+<table width="100%" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Email</th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d[0]}}</td>
+        <td>{{d[1]}}</td>
+        <td>{{d[2]}}</td>
+        <td><center>{{d[3]}}</center></td>
+    </tr>
+    {% endfor %}
+</table>
+{% elif msg %}
+<h3>{{ msg }}</h3>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "Medical_Guest.html" %}
+{% block m3 %}
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-2"></div>
+  <div class="col-6">
+
+    <h1>Medicine Registration</h1>
+    <form method="post" action="add_medicine">
+
+<div>
+    <label class="form-label" for="txt1">Medicine name</label>
+    <input name="T1" class="form-control" id="txt1" type="text" placeholder="Enter medicine" >
+</div>
+<div>
+    <label class="form-label mt-4" for="txt2">Lno</label>
+    <input name="T2"class="form-control" id="txt2" type="text" placeholder="Enter lno" >
+</div>
+<div class="has-success">
+  <label class="form-label mt-4" for="txt3">Company Name</label>
+  <input name="T3" type="text" placeholder="Enter Company Name" class="form-control is-valid" id="txt3">
+</div>
+<div class="has-success">
+  <label class="form-label mt-4" for="txt4">Medicine Type</label>
+  <input name="T4" type="text" placeholder="Enter Medicine Type" class="form-control is-valid" id="txt4">
+
+</div>
+<div>
+  <label class="col-form-label col-form-label-lg mt-4" for="txt5">Unit Price</label>
+  <input name="T5" class="form-control form-control-lg" type="text" placeholder="Enter Unit price" id="txt5">
+</div>
+<div>
+  <label class="col-form-label mt-4" for="txt6">Description</label>
+  <input name="T6" type="text" class="form-control" placeholder="Enter Description" id="txt6">
+</div>
+<div>
+  <label class="form-label mt-4"></label>
+  <div>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="submit" id="button-addon2">Add</button>
+    </div>
+  </div>
+</div>
+  </form>
+  </div>
+<div class="col-3"></div>
+</div>
+<div class="row text-center">
+  {% if vgt %}
+  <h3 class="txt-danger">{{vgt}}</h3>
+  {% endif %}
+</div>
+{% endblock %}

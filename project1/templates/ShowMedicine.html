@@ -1,0 +1,51 @@
+{% extends "Medical_Guest.html" %}
+{% block m3 %}
+<h1>Medicine</h1>
+{% if data %}
+<table width="100%" border="1" class="table table-hover">
+    <tr>
+
+        <th scope="col">Med ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Licence Number</th>
+        <th scope="col">Company</th>
+        <th scope="col">Medicine</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+    </tr>
+    {% for d in data %}
+    <tbody>
+    <tr class="table-success">
+        <td>{{d[0]}}</td>
+        <td>{{d[1]}}</td>
+        <td>{{d[2]}}</td>
+        <td>{{d[3]}}</td>
+        <td>{{d[4]}}</td>
+        <td>{{d[5]}}</td>
+        <td>{{d[6]}}</td>
+        <td>
+            <div class="row">
+                <div class="col-6">
+                    <form method="post" action="edit_medicine">
+                        <input type="hidden" name="H1" value="{{d[0]}}"/>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <form method="post" action="delete_medicine">
+                        <input type="hidden" name="H1" value="{{d[0]}}"/>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+   {% endfor %}
+
+</table>
+{% elif msg %}
+    <h3>{{ msg }}</h3>
+{% endif %}
+
+{% endblock %}

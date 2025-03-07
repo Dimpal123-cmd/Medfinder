@@ -1,0 +1,38 @@
+{% extends "a1_guest.html" %}
+{% block m1 %}
+<br>
+<h1>Search Your Medicine</h1>
+<form action="/" method="post">
+    <input type="text" name="T1">
+    <button type="submit">Search</button>
+    <ul class="navbar-nav me-auto">
+        <br>
+            <p><a href="medical_pass_change"> change Password</a></p>
+</form>
+{% if data %}
+<table width="100%">
+    {% for d in data %}
+    <tr>
+        <td>
+            <h3> Medicine Name: {{d[1]}}</h3>
+            <p>
+                Company: {{d[3]}}<br>
+                Price: {{d[5]}}
+            </p>
+        </td>
+        <td>
+            <h3>Store: {{d[8]}}</h3>
+            <p>
+                Owner: {{d[9]}} <br>
+                Address: {{d[10]}} <br>
+                Contact: {{d[11]}} <br>
+                Email: {{d[13]}}
+            </p>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% elif msg %}
+<h3>{{msg}}</h3>
+{% endif %}
+{% endblock %}

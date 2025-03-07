@@ -1,0 +1,51 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+<h1>Medicals</h1>
+{% if data %}
+<table width="100%" border="1" class="table table-hover">
+    <tr>
+        <th scope="col">storename</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Address</th>
+        <th scope="col">contact</th>
+        <th scope="col">Lno</th>
+        <th scope="col">Email</th>
+        <th scope="col">Manage</th>
+    </tr>
+    {% for d in data %}
+    <tbody>
+    <tr class="table-success">
+        <td>{{d[0]}}</td>
+        <td>{{d[1]}}</td>
+        <td>{{d[2]}}</td>
+        <td>{{d[3]}}</td>
+        <td>{{d[4]}}</td>
+        <td>{{d[5]}}</td>
+        <td>
+            <div class="row">
+                <div class="col-6">
+                    <form method="post" action="edit_medical">
+                        <input type="hidden" name="H1" value="{{d[5]}}"/>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <form method="post" action="delete_medical">
+                        <input type="hidden" name="H1" value="{{d[5]}}"/>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+   {% endfor %}
+
+</table>
+{% elif msg %}
+    <h3>{{ msg }}</h3>
+{% endif %}
+
+
+
+{% endblock %}

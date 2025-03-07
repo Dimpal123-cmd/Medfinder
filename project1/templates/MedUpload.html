@@ -1,0 +1,38 @@
+{% extends "Medical_Guest.html" %}
+{% block m3 %}
+<h1>Enter the details of medicine</h1>
+<form method="post" action="add_medicine">
+    <div class="form_row">
+        <div class="form-group col-md-6">
+            <label>Medicine Name</label>
+            <input type="text" name="t1" class="form-control" placeholder="Enter your medicine name"/>
+        </div>
+    </div>
+    <div class="form_row">
+        <div class="form-group col-md-6">
+            <label>Company Name</label>
+            <input type="text" name="t2" class="form-control" placeholder="Enter your company name"/>
+        </div>
+    </div>
+    <div class="form_row">
+        <div class="form-group col-md-6">
+            <label>Licence no.</label>
+            <input type="text" name="t3" class="form-control" placeholder="Enter your licence no."/>
+        </div>
+    </div>
+    <div class="form_row">
+        <div class="form-group col-md-6">
+            <label>Unit Price</label>
+            <input type="text" name="t4" class="form-control" placeholder="Enter your unit price"/>
+        </div>
+    </div>
+    <div class="form_row">
+        <div class="form-group col-md-6">
+            <label>Remark</label>
+            <input type="text" name="t5" class="form-control" placeholder="Enter your remark"/>
+        </div>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary" style="padding:5px 40px 5px 40px;">Add</button>
+</form>
+{% endblock %}

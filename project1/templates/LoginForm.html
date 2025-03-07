@@ -1,0 +1,35 @@
+{% extends "a1_guest.html" %}
+{% block m1 %}
+
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-2"></div>
+    <div class="col-6">
+       <form method="post" action="login">
+           <br>
+<h2>Sign In</h2>
+        <div>
+          <label class="col-form-label mt-4" for="txt1">Email</label>
+          <input name="T1" type="text" class="form-control" placeholder="Enter email" id="txt1">
+        </div>
+
+           <div>
+          <label class="col-form-label mt-4" for="txt2">password</label>
+          <input name="T2" type="password" class="form-control" placeholder="Enter password" id="txt2">
+        </div>
+
+  <br/>
+        <div class="d-grid gap-2">
+<button class="btn btn-lg btn-primary" type="submit">Login</button>
+        </div>
+</form>
+
+    </div>
+    <div class="col-3"></div>
+</div>
+
+{% if msg %}
+    <h3 class="text-danger">{{msg}}</h3>
+{% endif %}
+{% endblock %}

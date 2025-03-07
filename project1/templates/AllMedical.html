@@ -1,0 +1,17 @@
+{% extends "a1_guest.html" %}
+{% block m1 %}
+
+<h1>Medical Stores </h1>
+{% if data %}
+    {% for d in data %}
+    <h3>{{d[0]}}</h3>
+<p>
+    Owner : {{d[1]}}<br>
+    Licence Number : {{d[2]}}<br>
+    Address : {{d[3]}}<br>
+    Contact : {{d[4]}}<br>
+    Email : {{d[5]}}<br>
+</p>
+{% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "Admin_Guest.html" %}
+{% block m2 %}
+<h1>Admin block</h1>
+
+{% if data %}
+
+
+{% if photo=="no" %}
+    <form method="post" enctype="multipart/form-data" action="upload_admin_photo">
+        <p>
+            Photo <input type="file" name="F1" />
+            <button type="submit">Upload</button>
+        </p>
+    </form>
+{% else %}
+    <img src="../static/photos/{{photo}}" width="200" height="150" />
+    <p>
+        <a href="change_admin_photo">Change</a>
+    </p>
+
+{% endif %}
+<h3> Name: {{data[0]}}</h3>
+<h4>
+    Address : {{data[1]}}<br/>
+    Contact : {{data[2]}}<br/>
+    Email : {{data[3]}}<br/>
+    <a href="admin_edit_profile">Edit</a>
+
+</h4>
+{% elif msg %}
+<h3> {{msg}} </h3>
+{% endif %}
+<p><a href="admin_pass_change">Change Password</a></p>
+{% endblock %}
